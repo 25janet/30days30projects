@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: radial-gradient(circle at center, #fbc2eb, #a6c1ee);
+    font-family: 'Gudea', sans-serif;
+    color: #4b4b4b;
+}
+
+.app {
+    width: 90%;
+    max-width: 600px;
+    background: linear-gradient(135deg, #ffdde1, #fad0c4);
+    margin: 100px auto 0;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.app-title {
+    font-family: "Faculty Glyphic", cursive;
+    font-weight: 700;
+    font-size: 28px;
+    color: #ee9ca7;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.quiz {
+    padding: 20px 0;
+}
+
+.quiz h2 {
+    font-family: 'Georgia', serif;
+    font-size: 20px;
+    color: #7f53ac; /* lavender purple for contrast */
+    margin-bottom: 10px;
+}
+.btn{
+    background: linear-gradient(145deg, #fbc2eb, #a6c1ee);
+    color: #ffffff;
+    border:none;
+    font-weight:600;
+    width:100%;
+    height:45px;
+    padding:15px;
+    margin:13px 0;
+    text-align: left;
+    border-radius: 6px;
+    cursor: pointer;
+    transition:all 200ms ease-in-out;
+}
+.btn:hover:not([disabled]){
+    background: linear-gradient(145deg, #bc4e9c, #ec6ead);
+    color:#4b4b4b;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(172, 146, 236, 0.5);
+}
+.btn:disabled{
+    cursor: no-drop;
+}
+#next-button{
+    background: linear-gradient(145deg, blue, purple);
+    color: white;
+    border: none;
+    font-weight: 600;
+    width: 50%;
+    height: 45px;
+    padding: 15px;
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+    margin-left:23%;
+    display: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+
+}
+.correct{
+    background-color: #c8e6c9; /* light green */
+    color: #2e7d32; /* dark green */
+    border: 1px solid #388e3c; /* darker green for border */
+}
+.incorrect{
+    background-color: #ffcdd2; /* light red */
+    color: #c62828; /* dark red */
+    border: 1px solid #d32f2f; /* darker red for border */
+}
+#timer {
+    font-family: 'Gudea', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color:black;
+    background: radial-gradient(circle at top left, #ffdde1, #ee9ca7);
+    padding: 10px 20px;
+    width: fit-content;
+    margin: 8px 0;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+    text-align: center;
+}
+#timer:hover {
+    background: radial-gradient(circle at top right, #fad0c4, #fbc2eb);
+    cursor: default;
+}
