@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote of the day</title>
+    <link rel = "stylesheet"  href = "style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aladin&family=Faculty+Glyphic&family=Gudea:ital,wght@0,400;0,700;1,400&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="quotebox">
+        <h2>Quote of the day</h2>
+        <blockquote>Loading...</blockquote>
+        <span>Loading...</span>
+        <div>
+            <button>New quote</button>
+            <button>Tweet<img src = "tweet.png"></button>
+        </div>
+        
+    </div>
+    <script>
+    const api_url = "https://api.quotable.io/random";
+
+    const quoteText = document.querySelector("blockquote");
+    const quoteAuthor = document.querySelector("span");
+    const newQuoteBtn = document.querySelectorAll("button")[0];
+    const tweetBtn = document.querySelectorAll("button")[1];
+
+    async function getquote(url){
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+
+            // Update the HTML with quote and author
+            quoteText.innerText = `"${data.content}"`;
+            quoteAuthor.innerText = `— ${data.author}`;
+
+            // Update the Tweet button link
+            const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`"${data.content}" — ${data.author}`)}`;
+            tweetBtn.onclick = () => {
+                window.open(tweetUrl, "_blank");
+            };
+        } catch (error) {
+            quoteText.innerText = "Failed to load quote.";
+            quoteAuthor.innerText = "";
+            console.error("Error fetching quote:", error);
+        }
+    }
+
+    // Load first quote on page load
+    getquote(api_url);
+
+    // New Quote button
+    newQuoteBtn.addEventListener("click", () => {
+        getquote(api_url);
+    });
+</script>
+
+
+    
+    
+</body>
+</html>
